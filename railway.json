@@ -1,0 +1,12 @@
+{
+  "services": [
+    {
+      "name": "backend",
+      "rootDirectory": "ecommerce_backend"
+    },
+    {
+      "name": "frontend",
+      "rootDirectory": "ecommerce_frontend"
+    }
+  ]
+}

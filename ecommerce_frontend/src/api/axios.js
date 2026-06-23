@@ -1,10 +1,15 @@
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api";
+function getApiBase() {
+  const fromWindow = window.__API_URL__;
+  if (fromWindow && fromWindow !== "__VITE_API_URL__") return fromWindow;
+  const fromEnv = import.meta.env.VITE_API_URL;
+  if (fromEnv) return fromEnv;
+  return "http://127.0.0.1:8000/api";
+}
 
-const BACKEND_URL = import.meta.env.VITE_API_URL
-  ? import.meta.env.VITE_API_URL.replace(/\/api\/?$/, "")
-  : "http://127.0.0.1:8000";
+const API_BASE = getApiBase();
+const BACKEND_URL = API_BASE.replace(/\/api\/?$/, "");
 
 const api = axios.create({
   baseURL: API_BASE,

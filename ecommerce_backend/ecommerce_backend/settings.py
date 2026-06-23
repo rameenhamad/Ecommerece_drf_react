@@ -74,6 +74,11 @@ CORS_ALLOWED_ORIGINS = os.environ.get(
     'http://localhost:5173,http://localhost:80'
 ).split(',')
 
+CSRF_TRUSTED_ORIGINS = os.environ.get(
+    'CSRF_TRUSTED_ORIGINS',
+    'http://localhost:5173,http://localhost:80'
+).split(',')
+
 ROOT_URLCONF = 'ecommerce_backend.urls'
 
 TEMPLATES = [

@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: ./ecommerce_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./ecommerce_backend:/app
+    environment:
+      - DEBUG=True
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - CORS_ALLOWED_ORIGINS=http://localhost:5173,http://localhost:80
+
+  frontend:
+    build:
+      context: ./ecommerce_frontend
+      args:
+        VITE_API_URL: http://localhost:8000/api
+    ports:
+      - "5173:80"

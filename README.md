@@ -59,9 +59,16 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 # Install required packages
 pip install -r requirements.txt
 
+# Run database migrations
+python manage.py migrate
 
-**### 2. Frontend Setup (React)**
+# Start the local development server
+python manage.py runserver
 
+```
+
+### 2. Frontend Setup (React)
+```bash
 # Navigate to frontend directory
 cd frontend
 
@@ -71,8 +78,4 @@ npm install
 # Start the local React development server
 npm run dev
 
-# Run database migrations
-python manage.py migrate
-
-# Start the local development server
-python manage.py runserver
+```
